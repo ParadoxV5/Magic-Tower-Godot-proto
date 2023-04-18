@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://fo01fsa7loof"]
+
+[ext_resource type="Texture2D" uid="uid://jtvow5bpkexq" path="res://graphics/map/tile.png" id="2_mno8p"]
+
+[sub_resource type="TileSet" id="TileSet_toxos"]
+tile_size = Vector2i(32, 32)
+
+[node name="Map" type="CanvasGroup"]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(192, 32)
+texture = ExtResource("2_mno8p")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 416, 416)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_toxos")
+format = 2
