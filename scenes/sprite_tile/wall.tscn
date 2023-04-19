@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc606jgcaiyu5"]
+
+[ext_resource type="PackedScene" uid="uid://bxqdrw71my0uq" path="res://scenes/sprite_tile.tscn" id="1_i682c"]
+[ext_resource type="Texture2D" uid="uid://c2p0heefvrfwo" path="res://graphics/map/wall.png" id="2_xno0g"]
+
+[node name="Sprite2D" instance=ExtResource("1_i682c")]
+texture = ExtResource("2_xno0g")
