@@ -1,17 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://fo01fsa7loof"]
+[gd_scene load_steps=8 format=3 uid="uid://fo01fsa7loof"]
 
 [ext_resource type="PackedScene" uid="uid://dc606jgcaiyu5" path="res://scenes/sprite_tile/wall.tscn" id="2_7p6l2"]
 [ext_resource type="Texture2D" uid="uid://jtvow5bpkexq" path="res://graphics/map/tile.png" id="2_mno8p"]
 [ext_resource type="PackedScene" uid="uid://c554itm5l2tm5" path="res://scenes/sprite_tile/bars.tscn" id="3_wapc5"]
+[ext_resource type="PackedScene" uid="uid://dt7sfm73vprln" path="res://scenes/sprite_tile/player.tscn" id="4_5dmle"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fk0n8"]
 resource_name = "Walls"
 scenes/0/scene = ExtResource("2_7p6l2")
 scenes/1/scene = ExtResource("3_wapc5")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8tt5x"]
+resource_name = "Player"
+scenes/1/scene = ExtResource("4_5dmle")
+
 [sub_resource type="TileSet" id="TileSet_toxos"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetScenesCollectionSource_fk0n8")
+sources/3 = SubResource("TileSetScenesCollectionSource_8tt5x")
 
 [node name="Map" type="CanvasGroup"]
 texture_filter = 1
@@ -30,4 +36,4 @@ region_rect = Rect2(0, 0, 416, 416)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_toxos")
 format = 2
-layer_0/tile_data = PackedInt32Array(131079, 0, 0, 131078, 0, 0, 65546, 0, 0, 131082, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 262154, 0, 0, 262153, 0, 0, 262152, 0, 0, 262151, 0, 0, 327690, 0, 0, 393226, 0, 0, 393225, 0, 0, 393224, 0, 0, 393227, 0, 0, 393228, 0, 0, 262157, 0, 0, 196621, 0, 0, 327694, 0, 0, 393230, 0, 0, 262159, 0, 0, 327695, 0, 0, 65551, 0, 0, 131088, 0, 0, 131090, 0, 0, 262162, 0, 0, 327697, 0, 0, 458770, 0, 0, 458768, 0, 0, 524304, 0, 0, 524303, 0, 0, 524302, 0, 0, 589840, 0, 0, 589839, 0, 0, 589842, 0, 0, 655374, 0, 0, 655373, 0, 0, 655372, 0, 0, 655371, 0, 0, 655370, 0, 0, 589835, 0, 0, 524299, 0, 0, 524300, 0, 0, 458764, 0, 0, 524298, 0, 0, 524296, 0, 0, 524295, 0, 0, 524294, 0, 0, 589832, 0, 0, 655367, 0, 0, 786438, 0, 0, 786440, 0, 0, 786441, 0, 0, 851978, 0, 0, 851981, 0, 0, 786445, 0, 0, 786447, 0, 0, 786449, 0, 0, 786450, 0, 0, 65547, 0, 65536, 131084, 0, 65536, 65548, 0, 65536, 65550, 0, 65536, 851979, 0, 65536)
+layer_0/tile_data = PackedInt32Array(131079, 0, 0, 131078, 0, 0, 65546, 0, 0, 131082, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 262154, 0, 0, 262153, 0, 0, 262152, 0, 0, 262151, 0, 0, 327690, 0, 0, 393226, 0, 0, 393225, 0, 0, 393224, 0, 0, 393227, 0, 0, 393228, 0, 0, 262157, 0, 0, 196621, 0, 0, 327694, 0, 0, 393230, 0, 0, 262159, 0, 0, 327695, 0, 0, 65551, 0, 0, 131088, 0, 0, 131090, 0, 0, 262162, 0, 0, 327697, 0, 0, 458770, 0, 0, 458768, 0, 0, 524304, 0, 0, 524303, 0, 0, 524302, 0, 0, 589840, 0, 0, 589839, 0, 0, 589842, 0, 0, 655374, 0, 0, 655373, 0, 0, 655372, 0, 0, 655371, 0, 0, 655370, 0, 0, 589835, 0, 0, 524299, 0, 0, 524300, 0, 0, 458764, 0, 0, 524298, 0, 0, 524296, 0, 0, 524295, 0, 0, 524294, 0, 0, 589832, 0, 0, 655367, 0, 0, 786438, 0, 0, 786440, 0, 0, 786441, 0, 0, 851978, 0, 0, 851981, 0, 0, 786445, 0, 0, 786447, 0, 0, 786449, 0, 0, 786450, 0, 0, 65547, 0, 65536, 131084, 0, 65536, 65548, 0, 65536, 65550, 0, 65536, 851979, 0, 65536, 851980, 3, 65536)
