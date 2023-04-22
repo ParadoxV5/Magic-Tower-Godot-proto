@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c554itm5l2tm5"]
 
-[ext_resource type="PackedScene" uid="uid://bxqdrw71my0uq" path="res://scenes/sprite_tile.tscn" id="1_m53e4"]
+[ext_resource type="PackedScene" uid="uid://ccuw1adshvbj8" path="res://scenes/sprite_tile.tscn" id="1_m53e4"]
 [ext_resource type="Texture2D" uid="uid://dofg3hkc1yvdw" path="res://graphics/map/bars.png" id="2_lh1jm"]
 
-[node name="Sprite2D" instance=ExtResource("1_m53e4")]
+[node name="Bars" instance=ExtResource("1_m53e4")]
 texture = ExtResource("2_lh1jm")
