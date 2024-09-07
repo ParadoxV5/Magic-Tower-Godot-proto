@@ -1,4 +1,7 @@
 extends Sprite2D
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-  pass #TODO
+@export var penetrable: bool = false;
+
+## This is a virtual method.
+func _interact() -> void:
+  print("interacting with:", self)
