@@ -9,7 +9,7 @@ const VELOCITY_4DIR: PackedVector2Array = [
   Vector2(0, -TILE_SIZE)
 ]
 const INPUT_4DIR: PackedStringArray = [
-  &"ui_down", &"ui_left", &"ui_right", &"ui_up"
+  &"down", &"left", &"right", &"up"
 ]
 
 # Caches for [method _unhandled_input]
@@ -31,7 +31,8 @@ func _init() -> void:
 func _unhandled_input(event: InputEvent) -> void:
   var direction: int = 0
   while(direction < 4):
-    if event.is_action_pressed(INPUT_4DIR[direction]):
+    if event.is_action_pressed(INPUT_4DIR[direction], true): # allow echo
+      get_viewport().set_input_as_handled()
       return step(direction)
     direction += 1
 
