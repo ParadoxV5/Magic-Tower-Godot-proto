@@ -26,7 +26,7 @@ func _init() -> void:
   interact_query = PhysicsPointQueryParameters2D.new()
   interact_query.collide_with_areas = true # This game uses [Area2D]s …
   interact_query.collide_with_bodies = false # … not [PhysicsBody2D]s
-  interact_query.collision_mask = 1
+  interact_query.collision_mask = 3
 
 func _unhandled_input(event: InputEvent) -> void:
   var direction: int = 0
@@ -42,15 +42,21 @@ func step(direction: int) -> void:
   # This game moves in whole tiles only,
   # so point queries are way more [i]direct[/i] than astral-projected hurtboxes.
   var interact_query_results := direct_space.intersect_point(
-    interact_query, # already configured with [method _init] and [member position2]
-    1 # This prototype doesn’t overlap things, so it only needs 1 `max_results`.
+    # already configured with [method _init] and [member position2]
+    interact_query,
+    # This prototype only overlap the floor under things,
+    # so it only needs 2 `max_results`.
+    2
   )
   
-  if interact_query_results.is_empty():
-    global_position = position2 # move
-  else: # one
-    var collider := interact_query_results.front()[&"collider"] as Area2D
-    if collider is SpriteTile: # make sure
-      if collider.penetrable:
-        global_position = position2 # move
-      collider._interact()
+  match interact_query_results.size():
+    # 0: pass
+    1: # Found Floor
+      global_position = position2 # move
+    2: # Found Floor and Tile
+      for interact_query_result: Dictionary in interact_query_results:
+        var collider := interact_query_result[&"collider"] as Area2D
+        if collider is SpriteTile: # make sure
+          if collider.penetrable:
+            global_position = position2 # move
+          collider._interact()
