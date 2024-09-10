@@ -1,4 +1,4 @@
-extends Sprite2D
+class_name SpriteTile extends Area2D
 
 @export var penetrable: bool = false;
 

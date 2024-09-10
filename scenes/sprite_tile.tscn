@@ -5,11 +5,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8abg"]
 size = Vector2(32, 32)
 
-[node name="SpriteTile" type="Sprite2D"]
+[node name="SpriteTile" type="Area2D"]
+monitoring = false
+monitorable = false
 script = ExtResource("1_mxrpr")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e8abg")
 debug_color = Color(0, 0.6, 0.7, 0)

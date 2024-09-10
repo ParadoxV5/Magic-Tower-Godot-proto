@@ -1,13 +1,4 @@
-extends "../sprite_tile.gd"
-
-@export_group("Textures")
-var textures: Array[Texture2D] = [texture, null, null, null]
-@export var texture_left: Texture2D:
-  set(value): textures[1] = value
-@export var texture_right: Texture2D:
-  set(value): textures[2] = value
-@export var texture_up: Texture2D:
-  set(value): textures[3] = value
+class_name Player extends "../sprite_tile.gd"
 
 # Movement constants
 const TILE_SIZE: int = 32
@@ -45,9 +36,9 @@ func _unhandled_input(event: InputEvent) -> void:
     direction += 1
 
 func step(direction: int) -> void:
-  texture = textures[direction]
+  direction = $Sprite2D.set_facing(direction)
+  position2 = global_position + VELOCITY_4DIR[direction]
   
-  position2 = position + VELOCITY_4DIR[direction]
   # This game moves in whole tiles only,
   # so point queries are way more [i]direct[/i] than astral-projected hurtboxes.
   var interact_query_results := direct_space.intersect_point(
@@ -56,11 +47,10 @@ func step(direction: int) -> void:
   )
   
   if interact_query_results.is_empty():
-    position = position2 # move
+    global_position = position2 # move
   else: # one
-    var collider :=\
-      (interact_query_results.front()[&"collider"] as Area2D).get_parent()
+    var collider := interact_query_results.front()[&"collider"] as Area2D
     if collider is SpriteTile: # make sure
       if collider.penetrable:
-        position = position2 # move
+        global_position = position2 # move
       collider._interact()

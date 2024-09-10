@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt7sfm73vprln"]
+[gd_scene load_steps=8 format=3 uid="uid://dt7sfm73vprln"]
 
 [ext_resource type="PackedScene" uid="uid://ccuw1adshvbj8" path="res://scenes/sprite_tile.tscn" id="1_46bom"]
 [ext_resource type="Texture2D" uid="uid://2xippsepoaop" path="res://graphics/player/02.png" id="2_dij2c"]
 [ext_resource type="Script" path="res://scenes/sprite_tile/player.gd" id="2_g1e43"]
 [ext_resource type="Texture2D" uid="uid://c7v8xoc76a3cn" path="res://graphics/player/04.png" id="4_a4qfw"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/player-sprite_2d.gd" id="4_jggtd"]
 [ext_resource type="Texture2D" uid="uid://k04xg8hv38tr" path="res://graphics/player/06.png" id="5_ew80c"]
 [ext_resource type="Texture2D" uid="uid://ccrkmjg7nufdl" path="res://graphics/player/08.png" id="6_sav7l"]
 
 [node name="Player" instance=ExtResource("1_46bom")]
-texture = ExtResource("2_dij2c")
 script = ExtResource("2_g1e43")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_dij2c")
+script = ExtResource("4_jggtd")
 texture_left = ExtResource("4_a4qfw")
 texture_right = ExtResource("5_ew80c")
 texture_up = ExtResource("6_sav7l")

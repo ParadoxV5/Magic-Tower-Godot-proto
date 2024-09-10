@@ -4,4 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c2p0heefvrfwo" path="res://graphics/map/wall.png" id="2_xno0g"]
 
 [node name="Wall" instance=ExtResource("1_i682c")]
+
+[node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_xno0g")
