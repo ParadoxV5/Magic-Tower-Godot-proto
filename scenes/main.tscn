@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c554itm5l2tm5" path="res://scenes/sprite_tile/bars.tscn" id="3_f7mqu"]
 [ext_resource type="PackedScene" uid="uid://dt7sfm73vprln" path="res://scenes/sprite_tile/player.tscn" id="4_u3y1r"]
 [ext_resource type="PackedScene" uid="uid://brso82kddilnd" path="res://scenes/stat_label.tscn" id="5_6uqa1"]
-[ext_resource type="Texture2D" uid="uid://dcccv5ws41rxx" path="res://graphics/item/tool_pick.png" id="6_i63ch"]
+[ext_resource type="Texture2D" uid="uid://dcccv5ws41rxx" path="res://graphics/items/tool_pick.png" id="6_i63ch"]
 [ext_resource type="PackedScene" uid="uid://phluq0u1ghuq" path="res://scenes/tool_label.tscn" id="6_ou2m3"]
-[ext_resource type="Texture2D" uid="uid://diefkf2dayxsq" path="res://graphics/item/tool_bomb.png" id="7_gchvj"]
+[ext_resource type="Texture2D" uid="uid://diefkf2dayxsq" path="res://graphics/items/tool_bomb.png" id="7_gchvj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd2b5"]
 size = Vector2(416, 416)

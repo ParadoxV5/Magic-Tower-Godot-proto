@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diefkf2dayxsq"
-path="res://.godot/imported/tool_bomb.png-1054f03273b2e0659a7a75654d8bb010.ctex"
+uid="uid://x5jib104d1xi"
+path="res://.godot/imported/potion_red.png-b07527eeaadc2fb66289709bbd3c3401.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/item/tool_bomb.png"
-dest_files=["res://.godot/imported/tool_bomb.png-1054f03273b2e0659a7a75654d8bb010.ctex"]
+source_file="res://graphics/items/potion_red.png"
+dest_files=["res://.godot/imported/potion_red.png-b07527eeaadc2fb66289709bbd3c3401.ctex"]
 
 [params]
 

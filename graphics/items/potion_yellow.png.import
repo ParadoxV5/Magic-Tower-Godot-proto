@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sqlu7wwj0bdx"
-path="res://.godot/imported/gem_red.png-acffdc6dde821cf605bf29854a472f12.ctex"
+uid="uid://b5wu6rbatjdci"
+path="res://.godot/imported/potion_yellow.png-663147d73fe6b9e10536bc9cc1a5375f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/item/gem_red.png"
-dest_files=["res://.godot/imported/gem_red.png-acffdc6dde821cf605bf29854a472f12.ctex"]
+source_file="res://graphics/items/potion_yellow.png"
+dest_files=["res://.godot/imported/potion_yellow.png-663147d73fe6b9e10536bc9cc1a5375f.ctex"]
 
 [params]
 
