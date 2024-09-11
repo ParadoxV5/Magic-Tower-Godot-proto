@@ -94,28 +94,24 @@ offset_bottom = 192.0
 grow_vertical = 2
 
 [node name="hp" parent="HUD" instance=ExtResource("5_6uqa1")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Label" parent="HUD/hp" index="0"]
 text = "生命值"
 
 [node name="atk" parent="HUD" instance=ExtResource("5_6uqa1")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Label" parent="HUD/atk" index="0"]
 text = "攻击力"
 
 [node name="def" parent="HUD" instance=ExtResource("5_6uqa1")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Label" parent="HUD/def" index="0"]
 text = "防御力"
 
 [node name="absorption" parent="HUD" instance=ExtResource("5_6uqa1")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Label" parent="HUD/absorption" index="0"]
@@ -134,12 +130,10 @@ text = "使用"
 layout_mode = 2
 
 [node name="picks" parent="HUD/Tools" instance=ExtResource("6_ou2m3")]
-unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("6_i63ch")
 
 [node name="bombs" parent="HUD/Tools" instance=ExtResource("6_ou2m3")]
-unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("7_gchvj")
 
@@ -152,7 +146,16 @@ focus_mode = 0
 shortcut = SubResource("Shortcut_nfs2l")
 text = "图鉴"
 
+[connection signal="absorption_updated" from="Player" to="HUD/absorption/Amount" method="_on_player_stat_updated"]
+[connection signal="atk_updated" from="Player" to="HUD/atk/Amount" method="_on_player_stat_updated"]
+[connection signal="bombs_updated" from="Player" to="HUD/Tools/bombs/Amount" method="_on_player_stat_updated"]
+[connection signal="def_updated" from="Player" to="HUD/def/Amount" method="_on_player_stat_updated"]
+[connection signal="hp_updated" from="Player" to="HUD/hp/Amount" method="_on_player_stat_updated"]
+[connection signal="picks_updated" from="Player" to="HUD/Tools/picks/Amount" method="_on_player_stat_updated"]
+
 [editable path="HUD/hp"]
 [editable path="HUD/atk"]
 [editable path="HUD/def"]
 [editable path="HUD/absorption"]
+[editable path="HUD/Tools/picks"]
+[editable path="HUD/Tools/bombs"]

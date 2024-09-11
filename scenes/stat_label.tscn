@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://brso82kddilnd"]
+[gd_scene load_steps=2 format=3 uid="uid://brso82kddilnd"]
+
+[ext_resource type="Script" path="res://scenes/amount_label.gd" id="1_im6wn"]
 
 [node name="StatLabel" type="VBoxContainer"]
 anchors_preset = 15
@@ -14,3 +16,4 @@ layout_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
+script = ExtResource("1_im6wn")

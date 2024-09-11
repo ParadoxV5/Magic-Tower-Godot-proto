@@ -34,6 +34,18 @@ var bombs: int:
     bombs = value
     bombs_updated.emit(bombs)
 
+func emit_all_updated() -> void:
+  # I miss Ruby.
+  hp_updated        .emit(hp)
+  atk_updated       .emit(atk)
+  def_updated       .emit(def)
+  absorption_updated.emit(absorption)
+  picks_updated     .emit(picks)
+  bombs_updated     .emit(bombs)
+
+func _ready() -> void:
+  emit_all_updated()
+
 
 # Movement constants
 const TILE_SIZE: int = 32
