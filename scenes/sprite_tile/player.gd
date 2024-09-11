@@ -1,4 +1,39 @@
-class_name Player extends "../sprite_tile.gd"
+class_name Player extends "./character.gd"
+
+
+signal hp_updated(hp: int)
+func set_hp(value: int) -> int:
+  hp_updated.emit(super(value))
+  return hp
+
+signal atk_updated(atk: int)
+func set_atk(value: int) -> int:
+  atk_updated.emit(super(value))
+  return atk
+  
+signal def_updated(def: int)
+func set_def(value: int) -> int:
+  def_updated.emit(super(value))
+  return def
+
+signal absorption_updated(absorption: int)
+@export var absorption: int:
+  set(value):
+    absorption = value
+    absorption_updated.emit(absorption)
+
+signal picks_updated(picks: int)
+var picks: int:
+  set(value):
+    picks = value
+    picks_updated.emit(picks)
+
+signal bombs_updated(bombs: int)
+var bombs: int:
+  set(value):
+    bombs = value
+    bombs_updated.emit(bombs)
+
 
 # Movement constants
 const TILE_SIZE: int = 32

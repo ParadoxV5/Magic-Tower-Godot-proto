@@ -10,6 +10,10 @@
 
 [node name="Player" instance=ExtResource("1_46bom")]
 script = ExtResource("2_g1e43")
+absorption = 0
+hp = 200
+atk = 10
+def = 10
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_dij2c")
