@@ -1,4 +1,4 @@
-class_name Character extends "../sprite_tile.gd"
+class_name Character extends SpriteTile
 
 
 @export_group("Stats")

@@ -1,4 +1,14 @@
-class_name Player extends "./character.gd"
+class_name Player extends Character
+
+## Not necessarily the Singleton pattern,
+## but this would track the [i]current[/i] player if the game has multiple
+##
+## (Not using signals because this matches the full game plan better –
+#   it’s a limitation of this prototype.)
+static var instance: Player = null:
+  set(value):
+    instance = value
+    instance.emit_all_updated()
 
 
 signal hp_updated(hp: int)
@@ -44,7 +54,7 @@ func emit_all_updated() -> void:
   bombs_updated     .emit(bombs)
 
 func _ready() -> void:
-  emit_all_updated()
+  instance = self
 
 
 # Movement constants

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://8yi3gyptp1vb"]
+
+[ext_resource type="PackedScene" uid="uid://ccuw1adshvbj8" path="res://scenes/sprite_tile.tscn" id="1_7hlti"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/item.gd" id="2_541m7"]
+
+[node name="Item" instance=ExtResource("1_7hlti")]
+script = ExtResource("2_541m7")
+amount = 1
+penetrable = true
