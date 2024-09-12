@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmc3eg6ku6lw"]
+
+[ext_resource type="PackedScene" uid="uid://8yi3gyptp1vb" path="res://scenes/sprite_tile/item.tscn" id="1_u71ln"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/item/potion.gd" id="2_2lege"]
+
+[node name="Potion" instance=ExtResource("1_u71ln")]
+script = ExtResource("2_2lege")

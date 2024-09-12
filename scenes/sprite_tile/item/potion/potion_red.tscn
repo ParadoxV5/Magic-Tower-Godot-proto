@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1qvmvnb5ri05"]
+
+[ext_resource type="PackedScene" uid="uid://bmc3eg6ku6lw" path="res://scenes/sprite_tile/item/potion.tscn" id="1_3jx48"]
+[ext_resource type="Texture2D" uid="uid://x5jib104d1xi" path="res://graphics/items/potion_red.png" id="2_x2yhs"]
+
+[node name="PotionRed" instance=ExtResource("1_3jx48")]
+amount = 25
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_x2yhs")
