@@ -4,4 +4,4 @@ class_name SpriteTile extends Area2D
 
 ## This is a virtual method.
 func _interact() -> void:
-  print("interacting with:", self)
+  prints("interacting with:", self)

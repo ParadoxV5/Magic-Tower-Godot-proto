@@ -6,6 +6,6 @@
 [node name="Enemy" instance=ExtResource("1_8hqfe")]
 script = ExtResource("2_yrrth")
 turn_order = Array[int]([1, 0])
-hp = 0
+hp = 1
 atk = 0
 def = 0
