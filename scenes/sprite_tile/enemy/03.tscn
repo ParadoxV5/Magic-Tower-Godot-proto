@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwrjxhyotwj3v"]
+
+[ext_resource type="PackedScene" uid="uid://b44gp4ut36tcg" path="res://scenes/sprite_tile/enemy.tscn" id="1_jibve"]
+[ext_resource type="Texture2D" uid="uid://biqlmd6gjvumk" path="res://graphics/enemies/03.png" id="2_v064j"]
+
+[node name="03" instance=ExtResource("1_jibve")]
+hp = 88
+atk = 15
+def = 18
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_v064j")

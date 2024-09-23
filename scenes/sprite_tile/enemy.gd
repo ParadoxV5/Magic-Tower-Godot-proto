@@ -46,6 +46,7 @@ func estimate_damage(player := Player.instance) -> PackedByteArray:
 ## I chose to actually simulate a turn-based battle so game-over HPs can be realistic negatives.
 ## This design (in a full game) also grants extra extensibility, especially for 蓝海 designs.
 func battle(player := Player.instance) -> void:
+  player.absorption_remaining = player.absorption
   while turn_order.all(func(turn: Turn) -> bool: return( # I dislike Python ternary.
     take_damage(player.get_damage_dealt(self)) if turn # player turn
     else player.take_damage(get_damage_dealt(player)) # enemy turn
