@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b44gp4ut36tcg"]
+
+[ext_resource type="PackedScene" uid="uid://ccuw1adshvbj8" path="res://scenes/sprite_tile.tscn" id="1_8hqfe"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/enemy.gd" id="2_yrrth"]
+
+[node name="Enemy" instance=ExtResource("1_8hqfe")]
+script = ExtResource("2_yrrth")
+turn_order = Array[int]([1, 0])
+hp = 0
+atk = 0
+def = 0
