@@ -31,6 +31,7 @@ signal absorption_updated(absorption: int)
   set(value):
     absorption = value
     absorption_updated.emit(absorption)
+var absorption_remaining: int
 
 signal picks_updated(picks: int)
 var picks: int:
@@ -118,3 +119,30 @@ func step(direction: int) -> void:
           if collider.penetrable:
             global_position = position2 # move
           collider._interact()
+
+
+## Divide rounding up
+## 
+## Caution: [class int] overflows if [code]divisor[/code] is the negative limit
+## 
+## Based on https://github.com/ruby/ruby/pull/5965#issuecomment-1192093000
+static func ceildiv(dividend: int, divisor: int) -> int:
+  @warning_ignore("integer_division")
+  return -(dividend / -divisor)
+## Estimate (read: calculate) the number of attacks required to take down the [code]enemy[/code];
+## return a negative number if it’s impossible because of insufficient [member atk]
+## 
+## This is for [method Enemy.estimate_damage] only; it’s not used for [method Enemy.battle].
+func estimate_attacks(enemy: Enemy) -> int:
+  var damage_dealt := get_damage_dealt(enemy)
+  return ceildiv(enemy.hp, damage_dealt) if damage_dealt else -1 # I dislike Python ternary.
+
+func take_damage(damage: int) -> bool:
+  if absorption_remaining >= damage:
+    absorption_remaining -= damage
+    return true
+  if absorption_remaining: # Specialize case
+    damage -= absorption_remaining
+    absorption_remaining = 0
+  return super(damage)
+  

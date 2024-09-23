@@ -17,3 +17,12 @@ func set_atk(value: int) -> int:
 func set_def(value: int) -> int:
   def = value
   return def
+
+
+func get_damage_dealt(other: Character) -> int:
+  return maxi(atk - other.def, 0)
+
+## Returns whether the character survives the attack
+func take_damage(damage: int) -> bool:
+  hp -= damage
+  return hp > 0
