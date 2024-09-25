@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://fo01fsa7loof"]
+[gd_scene load_steps=31 format=4 uid="uid://fo01fsa7loof"]
 
 [ext_resource type="Texture2D" uid="uid://jtvow5bpkexq" path="res://graphics/map/tile.png" id="1_45ocm"]
 [ext_resource type="PackedScene" uid="uid://dc606jgcaiyu5" path="res://scenes/sprite_tile/wall.tscn" id="2_ahx41"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cwrjxhyotwj3v" path="res://scenes/sprite_tile/enemy/03.tscn" id="11_0oiex"]
 [ext_resource type="PackedScene" uid="uid://ba8iquqf7ab65" path="res://scenes/sprite_tile/enemy/07.tscn" id="12_a1ub2"]
 [ext_resource type="PackedScene" uid="uid://0t7kxmhrd74c" path="res://scenes/sprite_tile/enemy/11.tscn" id="13_pr8go"]
+[ext_resource type="PackedScene" uid="uid://gwxmw8bdjbpk" path="res://scenes/fibula_page.tscn" id="19_theet"]
 
 [sub_resource type="SystemFont" id="SystemFont_pkp8o"]
 font_names = PackedStringArray("Source Han Sans HW SC VF", "Source Han Sans HW SC", "Source Han Sans HW VF", "Source Han Sans HW", "SimHei", "Microsoft YaHei UI", "Microsoft JhengHei UI", "Monospace")
@@ -131,51 +132,54 @@ offset_right = 144.0
 offset_bottom = 192.0
 grow_vertical = 2
 
-[node name="hp" parent="HUD" instance=ExtResource("5_6uqa1")]
+[node name="Stats" type="VBoxContainer" parent="HUD"]
 layout_mode = 2
 
-[node name="Label" parent="HUD/hp" index="0"]
+[node name="hp" parent="HUD/Stats" instance=ExtResource("5_6uqa1")]
+layout_mode = 2
+
+[node name="Label" parent="HUD/Stats/hp" index="0"]
 text = "生命值"
 
-[node name="atk" parent="HUD" instance=ExtResource("5_6uqa1")]
+[node name="atk" parent="HUD/Stats" instance=ExtResource("5_6uqa1")]
 layout_mode = 2
 
-[node name="Label" parent="HUD/atk" index="0"]
+[node name="Label" parent="HUD/Stats/atk" index="0"]
 text = "攻击力"
 
-[node name="def" parent="HUD" instance=ExtResource("5_6uqa1")]
+[node name="def" parent="HUD/Stats" instance=ExtResource("5_6uqa1")]
 layout_mode = 2
 
-[node name="Label" parent="HUD/def" index="0"]
+[node name="Label" parent="HUD/Stats/def" index="0"]
 text = "防御力"
 
-[node name="absorption" parent="HUD" instance=ExtResource("5_6uqa1")]
+[node name="absorption" parent="HUD/Stats" instance=ExtResource("5_6uqa1")]
 layout_mode = 2
 
-[node name="Label" parent="HUD/absorption" index="0"]
+[node name="Label" parent="HUD/Stats/absorption" index="0"]
 text = "护盾值"
 
-[node name="STSeparator" type="HSeparator" parent="HUD"]
+[node name="STSeparator" type="HSeparator" parent="HUD/Stats"]
 layout_mode = 2
 
-[node name="ToolsCheckButton" type="CheckButton" parent="HUD"]
+[node name="ToolsCheckButton" type="CheckButton" parent="HUD/Stats"]
 layout_mode = 2
 focus_mode = 0
 shortcut = SubResource("Shortcut_ob8pl")
 text = "使用"
 
-[node name="Tools" type="HBoxContainer" parent="HUD"]
+[node name="Tools" type="HBoxContainer" parent="HUD/Stats"]
 layout_mode = 2
 
-[node name="picks" parent="HUD/Tools" instance=ExtResource("6_ou2m3")]
+[node name="picks" parent="HUD/Stats/Tools" instance=ExtResource("6_ou2m3")]
 layout_mode = 2
 texture = ExtResource("6_i63ch")
 
-[node name="bombs" parent="HUD/Tools" instance=ExtResource("6_ou2m3")]
+[node name="bombs" parent="HUD/Stats/Tools" instance=ExtResource("6_ou2m3")]
 layout_mode = 2
 texture = ExtResource("7_gchvj")
 
-[node name="TOSeparator" type="HSeparator" parent="HUD"]
+[node name="TOSeparator" type="HSeparator" parent="HUD/Stats"]
 layout_mode = 2
 
 [node name="FibulaCheckButton" type="CheckButton" parent="HUD"]
@@ -184,16 +188,50 @@ focus_mode = 0
 shortcut = SubResource("Shortcut_nfs2l")
 text = "图鉴"
 
-[connection signal="absorption_updated" from="Player" to="HUD/absorption/Amount" method="_on_player_stat_updated"]
-[connection signal="atk_updated" from="Player" to="HUD/atk/Amount" method="_on_player_stat_updated"]
-[connection signal="bombs_updated" from="Player" to="HUD/Tools/bombs/Amount" method="_on_player_stat_updated"]
-[connection signal="def_updated" from="Player" to="HUD/def/Amount" method="_on_player_stat_updated"]
-[connection signal="hp_updated" from="Player" to="HUD/hp/Amount" method="_on_player_stat_updated"]
-[connection signal="picks_updated" from="Player" to="HUD/Tools/picks/Amount" method="_on_player_stat_updated"]
+[node name="Window" type="Window" parent="HUD/FibulaCheckButton"]
+title = "图鉴"
+initial_position = 2
+size = Vector2i(416, 416)
+visible = false
 
-[editable path="HUD/hp"]
-[editable path="HUD/atk"]
-[editable path="HUD/def"]
-[editable path="HUD/absorption"]
-[editable path="HUD/Tools/picks"]
-[editable path="HUD/Tools/bombs"]
+[node name="TabContainer" type="TabContainer" parent="HUD/FibulaCheckButton/Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="敌物" parent="HUD/FibulaCheckButton/Window/TabContainer" instance=ExtResource("19_theet")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" parent="HUD/FibulaCheckButton/Window/TabContainer/敌物" index="1"]
+text = "敌物图鉴快捷键：Ｘ
+战斗程序：主角先手，与敌物轮流减少对方（己方攻击－对方防御）点生命，生命先０者失败。"
+
+[node name="物品" parent="HUD/FibulaCheckButton/Window/TabContainer" instance=ExtResource("19_theet")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[connection signal="absorption_updated" from="Player" to="HUD/Stats/absorption/Amount" method="_on_player_stat_updated"]
+[connection signal="atk_updated" from="Player" to="HUD/Stats/atk/Amount" method="_on_player_stat_updated"]
+[connection signal="bombs_updated" from="Player" to="HUD/Stats/Tools/bombs/Amount" method="_on_player_stat_updated"]
+[connection signal="def_updated" from="Player" to="HUD/Stats/def/Amount" method="_on_player_stat_updated"]
+[connection signal="hp_updated" from="Player" to="HUD/Stats/hp/Amount" method="_on_player_stat_updated"]
+[connection signal="picks_updated" from="Player" to="HUD/Stats/Tools/picks/Amount" method="_on_player_stat_updated"]
+[connection signal="toggled" from="HUD/FibulaCheckButton" to="HUD/FibulaCheckButton/Window" method="set_visible"]
+[connection signal="close_requested" from="HUD/FibulaCheckButton/Window" to="HUD/FibulaCheckButton/Window" method="hide"]
+[connection signal="close_requested" from="HUD/FibulaCheckButton/Window" to="HUD/FibulaCheckButton/Window/TabContainer/敌物" method="show"]
+[connection signal="close_requested" from="HUD/FibulaCheckButton/Window" to="HUD/FibulaCheckButton" method="set_pressed_no_signal" binds= [false]]
+
+[editable path="HUD/Stats/hp"]
+[editable path="HUD/Stats/atk"]
+[editable path="HUD/Stats/def"]
+[editable path="HUD/Stats/absorption"]
+[editable path="HUD/Stats/Tools/picks"]
+[editable path="HUD/Stats/Tools/bombs"]
+[editable path="HUD/FibulaCheckButton/Window/TabContainer/敌物"]
+[editable path="HUD/FibulaCheckButton/Window/TabContainer/物品"]

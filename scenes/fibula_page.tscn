@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://gwxmw8bdjbpk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s6ov6"]
+font_size = 12
+
+[node name="FibulaPage" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Table" type="Tree" parent="."]
+layout_mode = 2
+column_titles_visible = true
+allow_search = false
+hide_root = true
+select_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_s6ov6")
+vertical_alignment = 2
+autowrap_mode = 2
