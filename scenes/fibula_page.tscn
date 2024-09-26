@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://gwxmw8bdjbpk"]
+[gd_scene load_steps=3 format=3 uid="uid://gwxmw8bdjbpk"]
+
+[ext_resource type="Script" path="res://scenes/fibula_page-table.gd" id="1_jmx36"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s6ov6"]
 font_size = 12
@@ -12,10 +14,12 @@ grow_vertical = 2
 
 [node name="Table" type="Tree" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 column_titles_visible = true
 allow_search = false
 hide_root = true
 select_mode = 1
+script = ExtResource("1_jmx36")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
