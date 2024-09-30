@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://fo01fsa7loof"]
+[gd_scene load_steps=33 format=4 uid="uid://fo01fsa7loof"]
 
 [ext_resource type="Texture2D" uid="uid://jtvow5bpkexq" path="res://graphics/map/tile.png" id="1_45ocm"]
 [ext_resource type="PackedScene" uid="uid://dc606jgcaiyu5" path="res://scenes/sprite_tile/wall.tscn" id="2_ahx41"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://0t7kxmhrd74c" path="res://scenes/sprite_tile/enemy/11.tscn" id="13_pr8go"]
 [ext_resource type="PackedScene" uid="uid://gwxmw8bdjbpk" path="res://scenes/fibula_page.tscn" id="19_theet"]
 [ext_resource type="Script" path="res://scenes/main-window.gd" id="19_ujlke"]
+[ext_resource type="Script" path="res://scenes/main-enemy_table.gd" id="21_u7hus"]
 
 [sub_resource type="SystemFont" id="SystemFont_pkp8o"]
 font_names = PackedStringArray("Source Han Sans HW SC VF", "Source Han Sans HW SC", "Source Han Sans HW VF", "Source Han Sans HW", "SimHei", "Microsoft YaHei UI", "Microsoft JhengHei UI", "Monospace")
@@ -29,6 +30,8 @@ multichannel_signed_distance_field = true
 [sub_resource type="Theme" id="Theme_n12fw"]
 default_font = SubResource("SystemFont_pkp8o")
 default_font_size = 16
+Tree/constants/inner_item_margin_left = 4
+Tree/constants/inner_item_margin_right = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd2b5"]
 size = Vector2(416, 416)
@@ -208,6 +211,11 @@ current_tab = 0
 [node name="敌物" parent="HUD/FibulaCheckButton/Window/TabContainer" instance=ExtResource("19_theet")]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="Table" parent="HUD/FibulaCheckButton/Window/TabContainer/敌物" index="0"]
+hide_folding = true
+script = ExtResource("21_u7hus")
+column_titles = ["图像", "生命", "攻击", "防御", "伤害预计", "特殊"]
 
 [node name="Label" parent="HUD/FibulaCheckButton/Window/TabContainer/敌物" index="1"]
 text = "敌物图鉴快捷键：Ｘ、０，手柄左、上动作键

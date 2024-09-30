@@ -7,6 +7,15 @@ enum Turn {ENEMY, PLAYER}
 ## A full game would be programmatic rather than data-driven.
 @export var turn_order: Array[Turn] = [Turn.PLAYER, Turn.ENEMY]
 
+
+## Opening only one scene is still a scene transition.
+func _enter_tree() -> void:
+  Main_EnemyTable.instance.get_entry(scene_file_path).count += 1
+## also includes when [method free]d, unlike [method _enter_tree]
+func _exit_tree() -> void:
+  Main_EnemyTable.instance.get_entry(scene_file_path).count -= 1
+
+
 ## From the given number of attacks the [code]player[/code] requires to take [code]self[/code] down,
 ## estimate (read: calculate) the number of attacks [code]self[/code] gives to [code]player[/code] during such battle
 ## 
