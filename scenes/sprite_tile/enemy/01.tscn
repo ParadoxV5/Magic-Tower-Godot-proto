@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgnxcwluug36w"]
+
+[ext_resource type="PackedScene" uid="uid://b44gp4ut36tcg" path="res://scenes/sprite_tile/enemy.tscn" id="1_7n3yx"]
+[ext_resource type="Texture2D" uid="uid://bl5umtdewcjxc" path="res://graphics/enemies/01.png" id="2_bsvew"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/enemy/MagicEnemy.gd" id="2_c2rpj"]
+
+[node name="01" instance=ExtResource("1_7n3yx")]
+script = ExtResource("2_c2rpj")
+special_description = "攻击无视玩家防御"
+hp = 65
+atk = 8
+def = 12
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_bsvew")

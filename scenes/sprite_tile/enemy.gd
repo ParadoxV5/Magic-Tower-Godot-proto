@@ -40,12 +40,14 @@ func estimate_counterattacks(player_attacks: int) -> int:
 
 ## Divide rounding up
 ## 
-## Caution: [class int] overflows if [code]divisor[/code] is the negative limit
+## Warning: Off-by-one if [code]divisor[/code] is negative
+## Caution: [code]dividend + divisor[/code] can [class int] overflow
 ## 
-## Based on https://github.com/ruby/ruby/pull/5965#issuecomment-1192093000
+## Based on https://github.com/ruby/ruby/pull/5965#issue-1251327529
+## (https://github.com/ruby/ruby/pull/5965#issuecomment-1192093000) doesn’t work in GDScript
 static func ceildiv(dividend: int, divisor: int) -> int:
   @warning_ignore("integer_division")
-  return -(dividend / -divisor)
+  return (dividend + divisor - 1) / divisor
 ## Estimate the total battle damage for reference on the
 ## Fibula without considering [code]player[/code] HP limitations
 ## 

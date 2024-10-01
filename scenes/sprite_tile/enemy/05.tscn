@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://djb8xaq4g7h8k"]
+
+[ext_resource type="PackedScene" uid="uid://b44gp4ut36tcg" path="res://scenes/sprite_tile/enemy.tscn" id="1_tfhyo"]
+[ext_resource type="Texture2D" uid="uid://d0566h26t4pu7" path="res://graphics/enemies/05.png" id="2_7kv1b"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/enemy/SolidEnemy.gd" id="2_38f76"]
+
+[node name="05" instance=ExtResource("1_tfhyo")]
+script = ExtResource("2_38f76")
+special_description = "每次只受１点伤害"
+hp = 28
+atk = 20
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_7kv1b")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hvuckia1ssng"]
+
+[ext_resource type="PackedScene" uid="uid://b44gp4ut36tcg" path="res://scenes/sprite_tile/enemy.tscn" id="1_hw3n6"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/enemy/FirstStrikeComboEnemy.gd" id="2_5pumo"]
+[ext_resource type="Texture2D" uid="uid://biirw6c5c7cyo" path="res://graphics/enemies/08.png" id="2_y1jwu"]
+
+[node name="08" instance=ExtResource("1_hw3n6")]
+script = ExtResource("2_5pumo")
+turn_order = Array[int]([0, 0, 1])
+special_description = "先手攻击，且每次攻击２次"
+hp = 70
+atk = 30
+def = null
+penetrable = null
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_y1jwu")
