@@ -17,6 +17,7 @@ class EnemyEntry:
   
   func _init(table: Main_EnemyTable, key: String) -> void:
     listener_instance = (load(key) as PackedScene).instantiate()
+    listener_instance._ready() # scrappily call “constructor part 2” without triggering [method Enemy._enter_tree]
     table_row = table.add_row(
       (listener_instance.get_node(^"Sprite2D") as Sprite2D).texture
     )

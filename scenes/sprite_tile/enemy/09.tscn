@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6rahba88pkaq"]
+
+[ext_resource type="PackedScene" uid="uid://d2vmqwsir0wvk" path="res://scenes/sprite_tile/enemy/10.tscn" id="1_daiak"]
+[ext_resource type="Texture2D" uid="uid://3jnnij7qmykw" path="res://graphics/enemies/09.png" id="2_khkgh"]
+
+[node name="09" instance=ExtResource("1_daiak")]
+hp = 125
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_khkgh")

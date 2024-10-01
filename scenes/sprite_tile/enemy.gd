@@ -1,5 +1,7 @@
 class_name Enemy extends Character
 
+@export_group("Special")
+
 ## Enum for [member turn_order]
 enum Turn {ENEMY, PLAYER}
 ## Prototype turn system
@@ -14,13 +16,15 @@ signal special_updated(special: String)
     special_updated.emit(special_description)
 
 
+## [class Enemy]s load after [member Player.instance].
+func _ready() -> void:
+  pass
 ## Opening only one scene is still a scene transition.
 func _enter_tree() -> void:
   Main_EnemyTable.instance.get_entry(scene_file_path).count += 1
 ## also includes when [method free]d, unlike [method _enter_tree]
 func _exit_tree() -> void:
   Main_EnemyTable.instance.get_entry(scene_file_path).count -= 1
-
 
 
 ## From the given number of attacks the [code]player[/code] requires to take [code]self[/code] down,
