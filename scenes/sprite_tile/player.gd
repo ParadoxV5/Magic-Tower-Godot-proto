@@ -1,30 +1,5 @@
 class_name Player extends Character
 
-## Not necessarily the Singleton pattern,
-## but this would track the [i]current[/i] player if the game has multiple
-##
-## (Not using signals because this matches the full game plan better –
-#   it’s a limitation of this prototype.)
-static var instance: Player = null:
-  set(value):
-    instance = value
-    instance.emit_all_updated()
-
-
-signal hp_updated(hp: int)
-func set_hp(value: int) -> int:
-  hp_updated.emit(super(value))
-  return hp
-
-signal atk_updated(atk: int)
-func set_atk(value: int) -> int:
-  atk_updated.emit(super(value))
-  return atk
-  
-signal def_updated(def: int)
-func set_def(value: int) -> int:
-  def_updated.emit(super(value))
-  return def
 
 signal absorption_updated(absorption: int)
 @export var absorption: int:
@@ -53,6 +28,17 @@ func emit_all_updated() -> void:
   absorption_updated.emit(absorption)
   picks_updated     .emit(picks)
   bombs_updated     .emit(bombs)
+
+
+## Not necessarily the Singleton pattern,
+## but this would track the [i]current[/i] player if the game has multiple
+##
+## (Not using signals because this matches the full game plan better –
+#   it’s a limitation of this prototype.)
+static var instance: Player = null:
+  set(value):
+    instance = value
+    instance.emit_all_updated()
 
 func _ready() -> void:
   instance = self

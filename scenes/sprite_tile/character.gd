@@ -3,22 +3,25 @@ class_name Character extends SpriteTile
 
 @export_group("Stats")
 
-@export var hp: int = 1: set = set_hp # Initialize positive, else it sets 0 on init and dies
-func set_hp(value: int) -> int:
-  hp = value
-  if hp <= 0:
-    destroy()
-  return hp
+signal hp_updated(hp: int)
+@export var hp := 1 : # Initialize positive, else it sets 0 on init and dies
+  set(value):
+    hp = value
+    hp_updated.emit(hp)
+    if hp <= 0:
+      destroy()
 
-@export var atk: int: set = set_atk
-func set_atk(value: int) -> int:
-  atk = value
-  return atk
+signal atk_updated(atk: int)
+@export var atk: int:
+  set(value):
+    atk = value
+    atk_updated.emit(atk)
 
-@export var def: int: set = set_def
-func set_def(value: int) -> int:
-  def = value
-  return def
+signal def_updated(def: int)
+@export var def: int:
+  set(value):
+    def = value
+    def_updated.emit(def)
 
 
 ## Calculate the damage [code]self[/code] gives to [code]other[/code] each strike

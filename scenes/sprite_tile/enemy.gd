@@ -7,6 +7,12 @@ enum Turn {ENEMY, PLAYER}
 ## A full game would be programmatic rather than data-driven.
 @export var turn_order: Array[Turn] = [Turn.PLAYER, Turn.ENEMY]
 
+signal special_updated(special: String)
+@export var special_description := "（无）" :
+  set(value):
+    special_description = value
+    special_updated.emit(special_description)
+
 
 ## Opening only one scene is still a scene transition.
 func _enter_tree() -> void:
@@ -14,6 +20,7 @@ func _enter_tree() -> void:
 ## also includes when [method free]d, unlike [method _enter_tree]
 func _exit_tree() -> void:
   Main_EnemyTable.instance.get_entry(scene_file_path).count -= 1
+
 
 
 ## From the given number of attacks the [code]player[/code] requires to take [code]self[/code] down,
@@ -58,14 +65,14 @@ func estimate_damage(player := Player.instance) -> PackedByteArray:
   ret.resize(9) # [code]ret.size()[/code] + [code]sizeof(int)[/code]
   ret.encode_s64( # [class int] is signed 64-bit
     1, # From index 1 (i.e., skip the 1st byte, which is the [code]bool[/code])
-    estimate_counterattacks(player_attacks) * damage_dealt
+    max(estimate_counterattacks(player_attacks) * damage_dealt - player.absorption, 0)
   )
   return ret
 
 ## Even though this method can simply subtract the formula-derived [method estimate_damage]
 ## as with most modern 魔塔 (Magic Tower) games,
 ## I chose to actually simulate a turn-based battle so game-over HPs can be realistic negatives.
-## This design (in a full game) also grants extra extensibility, especially for 蓝海 designs.
+## This design (in a full game) also grants extra extensibility, especially for 蓝海 designs where even the DPS can vary.
 func battle(player := Player.instance) -> void:
   var damage_taken :=   self.get_damage_taken(player)
   var damage_dealt := player.get_damage_taken(self)
