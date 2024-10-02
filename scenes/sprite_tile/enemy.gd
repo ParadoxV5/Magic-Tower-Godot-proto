@@ -71,7 +71,7 @@ func estimate_damage(player := Player.instance) -> PackedByteArray:
   ret.resize(9) # [code]ret.size()[/code] + [code]sizeof(int)[/code]
   ret.encode_s64( # [class int] is signed 64-bit
     1, # From index 1 (i.e., skip the 1st byte, which is the [code]bool[/code])
-    max(estimate_counterattacks(player_attacks) * damage_dealt - player.absorption, 0)
+    estimate_counterattacks(player_attacks) * damage_dealt - player.absorption # allow negative for overriders
   )
   return ret
 
@@ -89,6 +89,9 @@ func battle(player := Player.instance) -> void:
     take_damage(damage_taken) if turn     # [code]Turn.PLAYER[/code]
     else player.take_damage(damage_dealt) # [code]Turn.ENEMY[/code]
   )): pass # The loop body is inside the condition
+  if player.hp > 0:
+    PurifyAvengeEnemy.avenge_counter += 2
+    player.enemy_defeated.emit()
 
 
 func bomb(player := Player.instance) -> void:

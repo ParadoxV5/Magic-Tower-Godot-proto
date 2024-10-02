@@ -32,11 +32,11 @@ class EnemyEntry:
     for sig: Signal in [
       listener_instance.atk_updated    ,
       listener_instance.def_updated    ,
-      listener_instance.special_updated,
       # [class Enemy]s load after [member Player.instance].
       Player.instance.atk_updated,
       Player.instance.def_updated,
-      Player.instance.absorption_updated
+      Player.instance.absorption_updated,
+      Player.instance.enemy_defeated
     ]: sig.connect(refresh_damage_estimate)
     refresh_damage_estimate()
   
@@ -59,7 +59,8 @@ class EnemyEntry:
     var estimate := listener_instance.estimate_damage()
     if estimate[0]:
       if estimate.size() > 1:
-        display = str(estimate.decode_s64(1))
+        var damage := estimate.decode_s64(1)
+        display = str(damage) if damage > 0 else "０"
       else:
         display = "∞"
     else:

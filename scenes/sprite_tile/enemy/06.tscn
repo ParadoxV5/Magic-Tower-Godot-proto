@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp5ayqyulx5lw"]
+
+[ext_resource type="PackedScene" uid="uid://b44gp4ut36tcg" path="res://scenes/sprite_tile/enemy.tscn" id="1_lh6pm"]
+[ext_resource type="Texture2D" uid="uid://dbol3hhl11ie4" path="res://graphics/enemies/06.png" id="2_7hus7"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/enemy/PurifyAvengeEnemy.gd" id="2_287tg"]
+
+[node name="06" instance=ExtResource("1_lh6pm")]
+script = ExtResource("2_287tg")
+turn_order = null
+special_description = null
+hp = 70
+atk = 24
+def = 8
+penetrable = null
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_7hus7")

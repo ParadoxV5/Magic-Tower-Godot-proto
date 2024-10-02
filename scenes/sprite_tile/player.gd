@@ -43,6 +43,10 @@ static var instance: Player = null:
 func _ready() -> void:
   instance = self
 
+## For updating [member PurifyAvengeEnemy.avenge_counter]
+## (No [code]static signal[/code]: https://github.com/godotengine/godot-proposals/issues/6851)
+signal enemy_defeated()
+
 
 # Movement constants
 const TILE_SIZE: int = 32
