@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc606jgcaiyu5"]
+[gd_scene load_steps=4 format=3 uid="uid://dc606jgcaiyu5"]
 
 [ext_resource type="PackedScene" uid="uid://ccuw1adshvbj8" path="res://scenes/sprite_tile.tscn" id="1_i682c"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/wall.gd" id="2_5tj2r"]
 [ext_resource type="Texture2D" uid="uid://c2p0heefvrfwo" path="res://graphics/map/wall.png" id="2_xno0g"]
 
 [node name="Wall" instance=ExtResource("1_i682c")]
+script = ExtResource("2_5tj2r")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_xno0g")

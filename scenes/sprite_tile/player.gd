@@ -119,4 +119,26 @@ func take_damage(damage: int) -> bool:
     damage -= absorption_remaining
     absorption_remaining = 0
   return super(damage)
-  
+
+
+# Tools are supposed to be inventory items; I made them “stats” in this prototype for minimalism.
+
+## For [method spend_tool]
+## 
+## [code]PICK = 0 = false; BOMB = 1 = true[/code]
+enum Tool { PICK, BOMB }
+
+func is_tooling(tool: Tool, amount := 1) -> bool:
+  return %ToolsCheckButton.button_pressed and (bombs if tool else picks) >= amount
+func spend_tool(tool: Tool, amount := 1) -> void:
+  if tool:
+    bombs -= amount
+  else:
+    picks -= amount
+  %ToolsCheckButton.button_pressed = false
+
+## Disable [code]%ToolsCheckButton[/code] if [code]self[/code] has no tool of any kind
+func _on_tools_updated(_amount := 0) -> void:
+  %ToolsCheckButton.disabled = picks <= 0 && bombs <= 0 # [code]has_tool[/code]
+  if %ToolsCheckButton.disabled:
+    %ToolsCheckButton.button_pressed = false

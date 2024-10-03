@@ -95,11 +95,12 @@ func battle(player := Player.instance) -> void:
 
 
 func bomb(player := Player.instance) -> void:
-  #TODO
+  player.spend_tool(Player.Tool.BOMB)
   destroy()
 
 func _interact() -> void:
-  if false: #TODO
-    bomb()
+  var player := Player.instance
+  if player.is_tooling(Player.Tool.BOMB):
+    bomb(player)
   else:
-    battle()
+    battle(player)

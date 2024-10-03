@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxktxxov8cwwt"]
+
+[ext_resource type="PackedScene" uid="uid://8yi3gyptp1vb" path="res://scenes/sprite_tile/item.tscn" id="1_xmbw7"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/item/tool_pick.gd" id="2_s2x2l"]
+[ext_resource type="Texture2D" uid="uid://dcccv5ws41rxx" path="res://graphics/items/tool_pick.png" id="2_tik7c"]
+
+[node name="ToolPick" instance=ExtResource("1_xmbw7")]
+script = ExtResource("2_s2x2l")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_tik7c")
