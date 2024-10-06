@@ -242,6 +242,12 @@ column_titles = ["图像", "生命", "攻击", "防御", "伤害预计", "特殊
 text = "敌物图鉴快捷键：Ｘ、０，手柄左、上动作键
 默认战斗程序：主角先手，与敌物轮流减少对方（己方攻击－对方防御）点生命，生命先０者失败。"
 
+[node name="ExistingOnlyButton" type="CheckButton" parent="HUD/FibulaCheckButton/Window/TabContainer/敌物"]
+layout_mode = 2
+button_pressed = true
+text = "只显示现存者"
+alignment = 2
+
 [node name="物品" parent="HUD/FibulaCheckButton/Window/TabContainer" instance=ExtResource("19_theet")]
 visible = false
 layout_mode = 2

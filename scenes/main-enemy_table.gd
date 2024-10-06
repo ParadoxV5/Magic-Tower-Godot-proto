@@ -2,6 +2,7 @@ class_name Main_EnemyTable extends FibulaPage_Table
 
 ## Scrappy Singleton
 static var instance: Main_EnemyTable = null
+@onready var existing_only_button: BaseButton = $"../ExistingOnlyButton"
 
 func _ready() -> void:
   super()
@@ -15,10 +16,11 @@ class EnemyEntry:
   var table_row : TreeItem
   enum TableColumn {TEXTURE, HP, ATK, DEF, DAMAGE_ESTIMATE, SPECIAL}
   
-  func _init(table: Main_EnemyTable, key: String) -> void:
+  func _init(key: String) -> void:
+    Main_EnemyTable.instance.existing_only_button.toggled.connect(refresh_visibility)
     listener_instance = (load(key) as PackedScene).instantiate()
     listener_instance._ready() # scrappily call “constructor part 2” without triggering [method Enemy._enter_tree]
-    table_row = table.add_row(listener_instance)
+    table_row = Main_EnemyTable.instance.add_row(listener_instance)
     table_row.set_text(TableColumn.HP , str(listener_instance.hp)) # This’ll never update in this prototype
     # It seems that we could use a custom [class Signal] system that updates on [method Signal.connect].
     listener_instance.atk_updated.connect(update_cell_atk)
@@ -28,8 +30,8 @@ class EnemyEntry:
     listener_instance.special_updated.connect(update_cell_special)
     update_cell_special(listener_instance.special_description)
     for sig: Signal in [
-      listener_instance.atk_updated    ,
-      listener_instance.def_updated    ,
+      listener_instance.atk_updated,
+      listener_instance.def_updated,
       # [class Enemy]s load after [member Player.instance].
       Player.instance.atk_updated,
       Player.instance.def_updated,
@@ -38,11 +40,13 @@ class EnemyEntry:
     ]: sig.connect(refresh_damage_estimate)
     refresh_damage_estimate()
   
+  func refresh_visibility(existing_only := Main_EnemyTable.instance.existing_only_button.button_pressed) -> void:
+    table_row.visible = !existing_only or count > 0
   ## the number of tree instances
   var count := 0:
     set(value):
       count = value
-      table_row.visible = count > 0
+      refresh_visibility()
   
   func update_cell_atk(value: int) -> void:
     table_row.set_text(TableColumn.ATK, str(value))
@@ -73,6 +77,6 @@ var entries := {}
 func get_entry(key: String) -> EnemyEntry:
   var entry: EnemyEntry = entries.get(key)
   if entry == null:
-    entry = EnemyEntry.new(self, key)
+    entry = EnemyEntry.new(key)
     entries[key] = entry
   return entry
