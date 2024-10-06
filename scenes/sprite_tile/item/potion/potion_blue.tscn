@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl5o4ma0wx720"]
+[gd_scene load_steps=4 format=3 uid="uid://cl5o4ma0wx720"]
 
-[ext_resource type="PackedScene" uid="uid://bmc3eg6ku6lw" path="res://scenes/sprite_tile/item/potion.tscn" id="1_ejyqr"]
+[ext_resource type="PackedScene" uid="uid://8yi3gyptp1vb" path="res://scenes/sprite_tile/item.tscn" id="1_ejyqr"]
+[ext_resource type="Script" path="res://scenes/sprite_tile/item/potion.gd" id="2_umxkq"]
 [ext_resource type="Texture2D" uid="uid://oq414rm3oeat" path="res://graphics/items/potion_blue.png" id="2_wepp0"]
 
 [node name="PotionBlue" instance=ExtResource("1_ejyqr")]
+script = ExtResource("2_umxkq")
 amount = 75
 
 [node name="Sprite2D" parent="." index="0"]

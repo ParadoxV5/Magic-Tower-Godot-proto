@@ -1,4 +1,4 @@
-class_name ToolBomb extends Item
+class_name ToolBomb extends Tool
 
 func _interact() -> void:
   Player.instance.bombs += amount

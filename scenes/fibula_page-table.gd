@@ -16,8 +16,7 @@ func _ready() -> void:
   set_column_title_alignment(last_column_id, HORIZONTAL_ALIGNMENT_LEFT)
 
 
-## [code]cells[/code] should be the first entry less than [member column_titles].
-func add_row(icon: Texture2D) -> TreeItem:
+func add_row(icon: SpriteTile) -> TreeItem:
   var row := create_item(tree_root)
   for i in columns:
     row.set_text_alignment(i, HORIZONTAL_ALIGNMENT_RIGHT)
@@ -25,5 +24,5 @@ func add_row(icon: Texture2D) -> TreeItem:
   row.set_text_alignment(0, HORIZONTAL_ALIGNMENT_CENTER)
   row.set_text_alignment(last_column_id, HORIZONTAL_ALIGNMENT_LEFT)
   row.set_cell_mode(0, TreeItem.CELL_MODE_ICON)
-  row.set_icon(0, icon)
+  row.set_icon(0, icon.get_texture())
   return row

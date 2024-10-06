@@ -128,9 +128,9 @@ func take_damage(damage: int) -> bool:
 ## [code]PICK = 0 = false; BOMB = 1 = true[/code]
 enum Tool { PICK, BOMB }
 
-func is_tooling(tool: Tool, amount := 1) -> bool:
+func is_tooling(tool: Player.Tool, amount := 1) -> bool:
   return %ToolsCheckButton.button_pressed and (bombs if tool else picks) >= amount
-func spend_tool(tool: Tool, amount := 1) -> void:
+func spend_tool(tool: Player.Tool, amount := 1) -> void:
   if tool:
     bombs -= amount
   else:
