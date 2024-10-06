@@ -41,6 +41,10 @@ multichannel_signed_distance_field = true
 [sub_resource type="Theme" id="Theme_n12fw"]
 default_font = SubResource("SystemFont_pkp8o")
 default_font_size = 16
+MarginContainer/constants/margin_bottom = 12
+MarginContainer/constants/margin_left = 8
+MarginContainer/constants/margin_right = 8
+MarginContainer/constants/margin_top = 4
 Tree/constants/inner_item_margin_left = 4
 Tree/constants/inner_item_margin_right = 4
 
@@ -260,6 +264,32 @@ column_titles = ["图像", "说明"]
 
 [node name="Label" parent="HUD/FibulaCheckButton/Window/TabContainer/物品" index="1"]
 text = "使用镐和炸，先启动左侧道具数量上边的开关（快捷键：１、２，手柄下、右动作键），再碰触墙壁或敌物。"
+
+[node name="鸣谢" type="MarginContainer" parent="HUD/FibulaCheckButton/Window/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/FibulaCheckButton/Window/TabContainer/鸣谢"]
+layout_mode = 2
+focus_mode = 2
+bbcode_enabled = true
+text = "[u]编程（和复刻）[/u]
+ParadoxV5
+https://github.com/ParadoxV5/Magic-Tower-Godot-proto
+
+[u]原作（含关卡设计）[/u]
+某有名人士，《魔塔之坑塔》，第０层
+
+[u]图像素材[/u]
+渡部・直，《魔法の塔》
+https://wwajp.com/mtower/
+
+[u]游戏引擎[/u]
+Godot 引擎
+https://godotengine.org"
+context_menu_enabled = true
+selection_enabled = true
 
 [connection signal="absorption_updated" from="Player" to="HUD/Stats/absorption/Amount" method="_on_player_stat_updated"]
 [connection signal="atk_updated" from="Player" to="HUD/Stats/atk/Amount" method="_on_player_stat_updated"]
