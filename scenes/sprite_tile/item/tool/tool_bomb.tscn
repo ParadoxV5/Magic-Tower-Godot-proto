@@ -6,6 +6,7 @@
 
 [node name="ToolBomb" instance=ExtResource("1_kt16q")]
 script = ExtResource("2_p6u87")
+explaination = "消耗一枚可以不战斗地移除一个敌物"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_kcp82")

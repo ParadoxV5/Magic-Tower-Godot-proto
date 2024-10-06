@@ -6,6 +6,7 @@
 
 [node name="GemRed" instance=ExtResource("1_uxue7")]
 script = ExtResource("2_82l72")
+stat_label = "攻击力"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_ilg1u")

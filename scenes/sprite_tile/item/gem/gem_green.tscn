@@ -6,6 +6,7 @@
 
 [node name="GemGreen" instance=ExtResource("1_73e4q")]
 script = ExtResource("2_x0n25")
+stat_label = "护盾值"
 amount = 10
 
 [node name="Sprite2D" parent="." index="0"]

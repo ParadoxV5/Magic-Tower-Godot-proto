@@ -6,6 +6,7 @@
 
 [node name="ToolPick" instance=ExtResource("1_xmbw7")]
 script = ExtResource("2_s2x2l")
+explaination = "消耗一把可以移除一堵褐色墙"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_tik7c")

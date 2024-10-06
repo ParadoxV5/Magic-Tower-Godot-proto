@@ -11,7 +11,7 @@ func estimate_damage(player := Player.instance) -> PackedByteArray:
   if ret[0]:
     extra_damage = player.absorption * 3 + avenge_counter
     special_description = ("在战斗前先造成（玩家护盾×３＋(%i)＝%i）
-点伤害，然后这个变量减半（这个变量每在玩家击败敌物后增加２）").format([avenge_counter, extra_damage], "%i")
+点伤害，然后这个变量减半（这个变量每在玩家战胜敌物后增加２）").format([avenge_counter, extra_damage], "%i")
     if ret.size() > 1:
       ret.encode_s64(1, ret.decode_s64(1) + extra_damage)
   return ret

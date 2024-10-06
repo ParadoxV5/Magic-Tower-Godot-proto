@@ -17,6 +17,7 @@ layout_mode = 2
 size_flags_vertical = 3
 column_titles_visible = true
 allow_search = false
+hide_folding = true
 hide_root = true
 select_mode = 1
 script = ExtResource("1_jmx36")
