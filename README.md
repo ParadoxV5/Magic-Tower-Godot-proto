@@ -29,6 +29,7 @@ Even the code comments mention “prototype” and “full game” everywhere.
 参见：
 See also:
 [`CONTRIBUTING.md`][CONTRIBUTING]
+
 [CONTRIBUTING]: CONTRIBUTING.md
 
 我的 ~~目标~~ _梦想_ 是建造一套聚集当前选择强处的魔塔游戏系统。
