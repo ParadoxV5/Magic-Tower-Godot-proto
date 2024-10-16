@@ -1,7 +1,9 @@
 # Magic Tower Godot proto
 
 这是《魔塔之坑塔》（通常简称为《坑塔》）的第０层关卡的复刻。
+目标：打败顶部的黑袍大王。（TA在原版中守着关卡出口。）
 This is a clone of *魔塔之坑塔* (commonly known simply as *坑塔*)’s 0th floor level.
+Objective: Defeat the black-robed boss at the top. (They guards the level exit in the original.)
 
 操控：用箭头／ＷＳＡＤ／十字键移动；
 剩下的说明在游戏里
